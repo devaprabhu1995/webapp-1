@@ -7,8 +7,8 @@ agent {
   }
   
       tools {
-        jdk 'jdk1.8'
-        maven 'mvn3.5.0'
+        jdk 'java-8.221'
+        maven 'maven-3.8.1'
     }
     
     stages {
