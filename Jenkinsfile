@@ -2,7 +2,7 @@ pipeline {
 
 agent {
     node {
-      label 'master'
+      label 'jenkins_node'
     }
   }
   
