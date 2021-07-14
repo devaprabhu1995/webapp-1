@@ -31,7 +31,7 @@ agent {
             steps {
                 echo 'Stage2 Hello world!'  
                 echo  'Stage2 $date'
-                echo  'Stage2 $date'
+               
             }
             
         }
