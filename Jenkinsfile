@@ -2,7 +2,7 @@ pipeline {
 
 agent {
     node {
-      label 'jenkins_node'
+      label 'demoagent'
     }
   }
   
