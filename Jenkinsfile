@@ -13,7 +13,7 @@ agent {
     
     stages {
         
-     stage('Maven version') {
+     stage('Tool version Check') {
             steps {
                 echo "Hello, Maven"
                 sh "mvn --version" 
@@ -36,7 +36,7 @@ agent {
     }
         
         
-        stage('Stage 1') {
+        stage('Build') {
             steps {
                 sh 'mvn clean package'
             }
