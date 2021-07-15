@@ -7,7 +7,7 @@ agent {
   }
   
       tools {
-        jdk 'java-8.221'
+
         maven 'maven-3.8.1'
     }
     
