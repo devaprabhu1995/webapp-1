@@ -2,7 +2,7 @@ pipeline {
 
 agent {
     node {
-      label 'demoagent'
+      label 'master'
     }
   }
   
@@ -19,6 +19,22 @@ agent {
                 sh "mvn --version" 
             }
         }
+        
+    stage('SonarQube Analysis') {
+      environment {
+        SCANNER_HOME = tool 'SonarQube-4.6.2'
+        ORGANIZATION = "demo1_maven_pipeline"
+        PROJECT_NAME = "demo1_maven_pipeline"
+      }
+      steps {
+        withSonarQubeEnv('SonarQube') {
+            sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.organization=$ORGANIZATION \
+            -Dsonar.projectKey=$PROJECT_NAME \
+            -Dsonar.sources=.'''
+        }
+      }
+    }
+        
         
         stage('Stage 1') {
             steps {
