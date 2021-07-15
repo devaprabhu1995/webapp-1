@@ -20,13 +20,20 @@ agent {
             }
         }
         
-     stage('SonarQube Scan') {
-            steps {
-                echo "Hello, Maven"
-                sh "mvn --version" 
+        stage('Sonarqube') {
+            environment {
+                scannerHome = tool 'SonarQube-4.6.2'
             }
-        }        
-        
+            steps {
+                withSonarQubeEnv('sonarqube') {
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
+                timeout(time: 10, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
+            }
+        }      
+
         stage('Stage 1') {
             steps {
                 sh 'mvn clean package'
