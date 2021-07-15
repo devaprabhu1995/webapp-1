@@ -13,12 +13,19 @@ agent {
     
     stages {
         
-     stage('Maven version') {
+     stage('Maven version test') {
             steps {
                 echo "Hello, Maven"
                 sh "mvn --version" 
             }
         }
+        
+     stage('SonarQube Scan') {
+            steps {
+                echo "Hello, Maven"
+                sh "mvn --version" 
+            }
+        }        
         
         stage('Stage 1') {
             steps {
